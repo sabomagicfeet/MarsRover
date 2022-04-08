@@ -53,4 +53,22 @@ public class Rover {
     public String status() {
         return "A Rover is at " + x + ", " + y + " and facing " + direction[cursor];
     }
+
+    public void moveForward() {
+        switch (direction[cursor]) {
+            case 'N' :
+                y += 1;
+                break;
+            case 'E' :
+                x += 1;
+                break;
+            case 'S' :
+                y -= 1;
+                break;
+            case 'W' :
+                x -= 1;
+                break;
+        }
+    }
+
 }
