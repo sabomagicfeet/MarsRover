@@ -35,4 +35,22 @@ public class Rover {
         return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
 
     }
+
+    public void changeDirection(char turn) {
+        if(turn == 'R') {
+            cursor += 1;
+        } else if (turn == 'L') {
+            cursor -= 1;
+        }
+
+        if(cursor == -1){
+            cursor = 3;
+        } else if(cursor == 3) {
+            cursor = 0;
+        }
+    }
+
+    public String status() {
+        return "A Rover is at " + x + ", " + y + " and facing " + direction[cursor];
+    }
 }

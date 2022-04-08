@@ -25,7 +25,7 @@ public class RoverTest {
 
         Rover rover = new Rover();
 
-        String expected = "A Rover is at 0, 0 and facing East";
+        String expected = "A Rover is at 0, 0 and facing E";
         rover.dropDownRover(x, y, direction);
         rover.changeDirection('R');
 
@@ -34,4 +34,10 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
+
+    // next step
+    // 1. commit add changeDirection
+    // 2. refactoring - make direction enum
+    // 3. moveForwardTest and moveForward
 }
