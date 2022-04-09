@@ -1,8 +1,18 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class RoverTest {
 
+    private Rover rover;
+
+    @BeforeEach
+    public void setUp() {
+        rover = new Rover();
+    }
+
+    @Disabled
     @Test
     public void dropDownRoverTest() {
         int x = 0;
@@ -17,6 +27,7 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Disabled
     @Test
     public void changeDirectionTest() {
         int x = 0;
@@ -35,6 +46,7 @@ public class RoverTest {
 
     }
 
+    @Disabled
     @Test
     public void moveForwardTest() {
         int x = 0;
@@ -53,13 +65,12 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Disabled
     @Test
     public void moveForwardAndTurnRightAndMoveForwardAndMoverForwardTest() {
         int x = 0;
         int y = 0;
         char direction = 'N';
-
-        Rover rover = new Rover();
 
         rover.dropDownRover(x, y, direction);
         rover.moveForward(); // 0 1 N
@@ -73,7 +84,27 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Disabled
+    @Test
+    public void moveTest() {
+        rover.dropDownRover(5, 5, 'E');
+        rover.move("RMMRMMMRMMMMMLLLMMM"); //5 4 S
 
+        String expected = "A Rover is at 5, 8 and facing E";
+        String actual = rover.status();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void dropDownRoverTestAfterRefactoring() {
+        rover.dropDownRover("5 5 E");
+
+        String expected = "A Rover is at 5, 5 and facing E";
+        String actual = rover.status();
+
+        Assertions.assertEquals(expected, actual);
+    }
     // next step
     //// 1. commit add changeDirection
     // 2. refactoring - make direction enum

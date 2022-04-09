@@ -13,6 +13,33 @@ public class Rover {
         direction[3] = 'W';
     }
 
+    public String dropDownRover(String dropCommand) {
+        String[] commandArray = dropCommand.split(" ");
+
+        this.x = Integer.parseInt(commandArray[0]);
+        this.y = Integer.parseInt(commandArray[1]);
+
+        switch (commandArray[2]) {
+            case "N" :
+                this.cursor = 0;
+                break;
+            case "E" :
+                this.cursor = 1;
+                break;
+            case "S" :
+                this.cursor = 2;
+                break;
+            case "W" :
+                this.cursor = 3;
+                break;
+        }
+
+        return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
+
+    }
+
+
+    // To be Deleted after refactoring
     public String dropDownRover(int x, int y, char direction) {
         this.x = x;
         this.y = y;
@@ -33,8 +60,8 @@ public class Rover {
         }
 
         return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
-
     }
+
 
     public void changeDirection(char turn) {
         if(turn == 'R') {
@@ -45,7 +72,7 @@ public class Rover {
 
         if(cursor == -1){
             cursor = 3;
-        } else if(cursor == 3) {
+        } else if(cursor == 4) {
             cursor = 0;
         }
     }
@@ -71,4 +98,15 @@ public class Rover {
         }
     }
 
+    public void move(String moveCommand) {
+        for(int i = 0; i < moveCommand.length(); i++) {
+            if( (moveCommand.charAt(i) == 'R') || (moveCommand.charAt(i) == 'L') ) {
+                changeDirection(moveCommand.charAt(i));
+            } else if (moveCommand.charAt(i) == 'M') {
+                moveForward();
+            } else {
+                System.out.println("Invalid command. Please use only R, L and M for the command.");
+            }
+        }
+    }
 }
