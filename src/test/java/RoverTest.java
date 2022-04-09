@@ -105,8 +105,15 @@ public class RoverTest {
 
         Assertions.assertEquals(expected, actual);
     }
-    // next step
-    //// 1. commit add changeDirection
-    // 2. refactoring - make direction enum
-    // 3. moveForwardTest and moveForward
+
+    @Test
+    public void moveTestAfterRefactoring() {
+        rover.dropDownRover("5 5 E");
+        rover.move("RMMRMMMRMMMMMLLLMMM");
+
+        String expected = "A Rover is at 5, 8 and facing E";
+        String actual = rover.status();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
