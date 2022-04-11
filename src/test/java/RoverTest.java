@@ -129,7 +129,8 @@ public class RoverTest {
 
         for(int i = 0; i < maxX; i++) {
             for(int j = 0; j < maxY; j++) {
-                Plateau plateau = new Plateau(i, j, false);
+                Location location = new Location(i, j);
+                Plateau plateau = new Plateau(location, false);
                 plateaus[i][j] = plateau;
             }
         }
