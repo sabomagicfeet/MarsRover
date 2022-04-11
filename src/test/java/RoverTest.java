@@ -190,4 +190,24 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
         Assertions.assertEquals(expected1, actual1);
     }
+
+    @Test
+    public void moveTwoRoversTest() {
+        rover.dropDownRover("5 5 E");
+        rover.move("RMMRMMMRMMMMMLLLMMM");
+
+        String expected = "A Rover is at 5, 8 and facing E";
+        String actual = rover.status();
+
+        Assertions.assertEquals(expected, actual);
+
+        rover1.dropDownRover("0 0 N");
+        rover1.move("MMMRMMMR");
+
+        String expected1 = "A Rover is at 3, 3 and facing S";
+        String actual1 = rover1.status();
+
+        Assertions.assertEquals(expected1, actual1);
+    }
+
 }
