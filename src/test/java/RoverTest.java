@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test;
 public class RoverTest {
 
     private Rover rover;
+    private Rover rover1;
 
     @BeforeEach
     public void setUp() {
         rover = new Rover();
+        rover1 = new Rover();
     }
 /*
     @Disabled
@@ -172,5 +174,20 @@ public class RoverTest {
 
         String expected = "This Mars has 5 x 5 Plateaus";
         String actual = plateau.status();
+    }
+
+    @Test
+    public void dropTwoRoversTest() {
+        rover.dropDownRover("3 3 E");
+        rover1.dropDownRover("0 0 N");
+
+        String expected = "A Rover is at 3, 3 and facing E";
+        String actual = rover.status();
+
+        String expected1 = "A Rover is at 0, 0 and facing N";
+        String actual1 = rover1.status();
+
+        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected1, actual1);
     }
 }
