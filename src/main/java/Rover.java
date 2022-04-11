@@ -1,7 +1,6 @@
 public class Rover {
 
-    private int x;
-    private int y;
+    private Location location;
     private char[] direction;
     private int cursor;
 
@@ -16,8 +15,9 @@ public class Rover {
     public void dropDownRover(String dropCommand) {
         String[] commandArray = dropCommand.split(" ");
 
-        this.x = Integer.parseInt(commandArray[0]);
-        this.y = Integer.parseInt(commandArray[1]);
+        int x = Integer.parseInt(commandArray[0]);
+        int y = Integer.parseInt(commandArray[1]);
+        this.location = new Location(x, y);
 
         switch (commandArray[2]) {
             case "N" :
@@ -39,8 +39,7 @@ public class Rover {
 
     // To be Deleted after refactoring
     public String dropDownRover(int x, int y, char direction) {
-        this.x = x;
-        this.y = y;
+        this.location = new Location(x, y);
 
         switch (direction) {
             case 'N' :
@@ -57,7 +56,7 @@ public class Rover {
                 break;
         }
 
-        return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
+        return "A Rover is dropped at " + this.location.getX() + ", " + this.location.getY() + ", " + this.direction[cursor];
     }
 
 
@@ -76,22 +75,26 @@ public class Rover {
     }
 
     public String status() {
-        return "A Rover is at " + x + ", " + y + " and facing " + direction[cursor];
+        return "A Rover is at " + location.getX() + ", " + location.getY() + " and facing " + direction[cursor];
     }
 
     public void moveForward() {
         switch (direction[cursor]) {
             case 'N' :
-                y += 1;
+//                y += 1;
+                this.location.setY( this.location.getY() + 1 );
                 break;
             case 'E' :
-                x += 1;
+//                x += 1;
+                this.location.setX( this.location.getX() + 1 );
                 break;
             case 'S' :
-                y -= 1;
+//                y -= 1;
+                this.location.setY( this.location.getY() - 1 );
                 break;
             case 'W' :
-                x -= 1;
+//                x -= 1;
+                this.location.setX( this.location.getX() - 1 );
                 break;
         }
     }
