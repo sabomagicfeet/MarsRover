@@ -1,17 +1,24 @@
+import java.util.Arrays;
+
 public class Plateau {
-    private Location location;
-    private boolean isOccupied;
+    private int maxX;
+    private int maxY;
 
-    public Plateau(Location location, boolean isOccupied) {
-        this.location = location;
-        this.isOccupied = isOccupied;
+    private boolean[][] grid;
+
+    private Location[][] locations;
+
+    public Plateau(int maxX, int maxY) {
+        this.maxX = maxX;
+        this.maxY = maxY;
+
+        // Initialize the grid with false automatically
+        grid = new boolean[maxX][maxY];
     }
 
-    public boolean isOccupied() {
-        return isOccupied;
+    public String status() {
+        System.out.println(grid[0][0]);
+        return "This Mars has " + this.maxX + " x " + this.maxY + " Plateaus";
     }
 
-    public void setOccupied(boolean occupied) {
-        isOccupied = occupied;
-    }
 }

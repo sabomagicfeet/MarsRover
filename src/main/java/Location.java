@@ -1,6 +1,15 @@
 public class Location {
     private int x;
     private int y;
+    private boolean isOccupied = false;
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
+
+    public void setOccupied(boolean occupied) {
+        isOccupied = occupied;
+    }
 
     public Location(int x, int y) {
         this.x = x;

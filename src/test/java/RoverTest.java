@@ -117,6 +117,7 @@ public class RoverTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    /*
     @Test
     public void makePlateausOnMars() {
         String userInput = "5 5";
@@ -138,5 +139,38 @@ public class RoverTest {
 
         String expected = "This Mars has 5 x 5 Plateaus";
         String actual = mars.status();
+    }
+     */
+    /*
+    @Test
+    public void makePlateauOnMars() {
+        String userInput = "5 5";
+        String[] userInputArray = userInput.split(" ");
+
+        int maxX = Integer.parseInt(userInputArray[0]); // 5
+        int maxY = Integer.parseInt(userInputArray[1]); // 5
+
+        Location[][] locations = new Location[maxX][maxY];
+
+        Plateau plateau = new Plateau(maxX, maxY);
+
+        String expected = "This Mars has 5 x 5 Plateaus";
+        String actual = plateau.status();
+    }
+
+     */
+
+    @Test
+    public void makePlateauOnMars() {
+        String userInput = "5 5";
+        String[] userInputArray = userInput.split(" ");
+
+        int maxX = Integer.parseInt(userInputArray[0]); // 5
+        int maxY = Integer.parseInt(userInputArray[1]); // 5
+
+        Plateau plateau = new Plateau(maxX, maxY);
+
+        String expected = "This Mars has 5 x 5 Plateaus";
+        String actual = plateau.status();
     }
 }
