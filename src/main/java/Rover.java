@@ -13,7 +13,7 @@ public class Rover {
         direction[3] = 'W';
     }
 
-    public String dropDownRover(String dropCommand) {
+    public void dropDownRover(String dropCommand) {
         String[] commandArray = dropCommand.split(" ");
 
         this.x = Integer.parseInt(commandArray[0]);
@@ -33,8 +33,6 @@ public class Rover {
                 this.cursor = 3;
                 break;
         }
-
-        return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
 
     }
 

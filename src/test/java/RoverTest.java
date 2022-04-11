@@ -11,7 +11,7 @@ public class RoverTest {
     public void setUp() {
         rover = new Rover();
     }
-
+/*
     @Disabled
     @Test
     public void dropDownRoverTest() {
@@ -95,9 +95,9 @@ public class RoverTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
+*/
     @Test
-    public void dropDownRoverTestAfterRefactoring() {
+    public void dropDownRoverTest() {
         rover.dropDownRover("5 5 E");
 
         String expected = "A Rover is at 5, 5 and facing E";
@@ -107,7 +107,7 @@ public class RoverTest {
     }
 
     @Test
-    public void moveTestAfterRefactoring() {
+    public void moveTest() {
         rover.dropDownRover("5 5 E");
         rover.move("RMMRMMMRMMMMMLLLMMM");
 
@@ -115,5 +115,27 @@ public class RoverTest {
         String actual = rover.status();
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void makePlateausOnMars() {
+        String userInput = "5 5";
+        String[] userInputArray = userInput.split(" ");
+
+        int maxX = Integer.parseInt(userInputArray[0]); // 5
+        int maxY = Integer.parseInt(userInputArray[1]); // 5
+
+        Plateau[][] plateaus = new Plateau[maxX][maxY];
+
+        for(int i = 0; i < maxX; i++) {
+            for(int j = 0; j < maxY; j++) {
+                Plateau plateau = new Plateau(i, j, false);
+                plateaus[i][j] = plateau;
+            }
+        }
+        Mars mars = new Mars(maxX, maxY, plateaus);
+
+        String expected = "This Mars has 5 x 5 Plateaus";
+        String actual = mars.status();
     }
 }
