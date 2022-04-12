@@ -103,7 +103,7 @@ public class RoverTest {
         rover.dropDownRover("5 5 E");
 
         String expected = "A Rover is at 5, 5 and facing E";
-        String actual = rover.status();
+        String actual = rover.printStatus();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -114,7 +114,7 @@ public class RoverTest {
         rover.move("RMMRMMMRMMMMMLLLMMM");
 
         String expected = "A Rover is at 5, 8 and facing E";
-        String actual = rover.status();
+        String actual = rover.printStatus();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -182,10 +182,10 @@ public class RoverTest {
         rover1.dropDownRover("0 0 N");
 
         String expected = "A Rover is at 3, 3 and facing E";
-        String actual = rover.status();
+        String actual = rover.printStatus();
 
         String expected1 = "A Rover is at 0, 0 and facing N";
-        String actual1 = rover1.status();
+        String actual1 = rover1.printStatus();
 
         Assertions.assertEquals(expected, actual);
         Assertions.assertEquals(expected1, actual1);
@@ -197,7 +197,7 @@ public class RoverTest {
         rover.move("RMMRMMMRMMMMMLLLMMM");
 
         String expected = "A Rover is at 5, 8 and facing E";
-        String actual = rover.status();
+        String actual = rover.printStatus();
 
         Assertions.assertEquals(expected, actual);
 
@@ -205,7 +205,7 @@ public class RoverTest {
         rover1.move("MMMRMMMR");
 
         String expected1 = "A Rover is at 3, 3 and facing S";
-        String actual1 = rover1.status();
+        String actual1 = rover1.printStatus();
 
         Assertions.assertEquals(expected1, actual1);
     }

@@ -17,8 +17,14 @@ public class Plateau {
     }
 
     public String status() {
-        System.out.println(grid[0][0]);
         return "This Mars has " + this.maxX + " x " + this.maxY + " Plateaus";
     }
 
+    public int getMaxX() {
+        return maxX;
+    }
+
+    public int getMaxY() {
+        return maxY;
+    }
 }

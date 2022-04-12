@@ -11,11 +11,6 @@ public class Rover {
 
 
     public Rover() {
-//        direction = new char[4];
-//        direction[0] = 'N';
-//        direction[1] = 'E';
-//        direction[2] = 'S';
-//        direction[3] = 'W';
     }
 
     public void dropDownRover(String dropCommand) {
@@ -23,10 +18,6 @@ public class Rover {
 
         this.x = Integer.parseInt(commandArray[0]);
         this.y = Integer.parseInt(commandArray[1]);
-
-//        int x = Integer.parseInt(commandArray[0]);
-//        int y = Integer.parseInt(commandArray[1]);
-//        this.location = new Location(x, y);
 
         switch (commandArray[2]) {
             case "N" :
@@ -81,8 +72,11 @@ public class Rover {
         }
     }
 
-    public String status() {
+    public String printStatus() {
         return "A Rover is at " + x + ", " + y + " and facing " + direction[cursor];
+    }
+    public String status() {
+        return x + " " + y + " " + direction[cursor];
     }
 
     public void moveForward() {
