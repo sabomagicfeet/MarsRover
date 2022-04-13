@@ -5,12 +5,12 @@ public class Rover {
     private int x;
     private int y;
     private Plateau map;
-
     private final char[] direction = new char[]{'N', 'E', 'S', 'W'};
     private int cursor;
 
 
-    public Rover() {
+    public Rover(Plateau map) {
+        this.map = map;
     }
 
     public void dropDownRover(String dropCommand) {
@@ -73,7 +73,7 @@ public class Rover {
     }
 
     public String printStatus() {
-        return "A Rover is at " + x + ", " + y + " and facing " + direction[cursor];
+        return "This Rover is at " + x + ", " + y + " and facing " + direction[cursor];
     }
     public String status() {
         return x + " " + y + " " + direction[cursor];
@@ -82,20 +82,35 @@ public class Rover {
     public void moveForward() {
         switch (direction[cursor]) {
             case 'N' :
-                y += 1;
-//                this.location.setY( this.location.getY() + 1 );
+                if( (y + 1) >= map.getMaxY() ) {
+                    System.out.println("This Rover can't move forward anymore.");
+                } else {
+                    y += 1;
+                }
                 break;
+
             case 'E' :
-                x += 1;
-//                this.location.setX( this.location.getX() + 1 );
+                if( (x + 1) >= map.getMaxX() ) {
+                    System.out.println("This Rover can't move forward anymore.");
+                } else {
+                    x += 1;
+                }
                 break;
+
             case 'S' :
-                y -= 1;
-//                this.location.setY( this.location.getY() - 1 );
+                if( (y - 1) <= map.getMaxY() ) {
+                    System.out.println("This Rover can't move forward anymore.");
+                } else {
+                    y -= 1;
+                }
                 break;
+
             case 'W' :
-                x -= 1;
-//                this.location.setX( this.location.getX() - 1 );
+                if( (x - 1) <= map.getMaxX() ) {
+                    System.out.println("This Rover can't move forward anymore.");
+                } else {
+                    x -= 1;
+                }
                 break;
         }
     }

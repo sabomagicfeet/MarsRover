@@ -28,7 +28,7 @@ public class Main {
         System.out.println("ex) 1 2 N  - drop at 1, 2 grid and facing North ");
         String dropCommandUserInput = scanner.nextLine();
 
-        Rover rover1 = new Rover();
+        Rover rover1 = new Rover(plateau);
         rover1.dropDownRover(dropCommandUserInput);
         System.out.println(rover1.printStatus());
         System.out.println();
@@ -46,7 +46,7 @@ public class Main {
         System.out.println("ex) 3 3 E  - drop at 3, 3 grid and facing EAST ");
         dropCommandUserInput = scanner.nextLine();
 
-        Rover rover2 = new Rover();
+        Rover rover2 = new Rover(plateau);
         rover2.dropDownRover(dropCommandUserInput);
         System.out.println(rover2.printStatus());
         System.out.println();
