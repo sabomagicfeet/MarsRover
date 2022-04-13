@@ -6,14 +6,12 @@ public class Plateau {
 
     private boolean[][] grid;
 
-    private Location[][] locations;
-
     public Plateau(int maxX, int maxY) {
         this.maxX = maxX;
         this.maxY = maxY;
 
         // Initialize the grid with false automatically
-        grid = new boolean[maxX][maxY];
+        grid = new boolean[maxX + 1][maxY + 1];
     }
 
     public String status() {
@@ -26,5 +24,9 @@ public class Plateau {
 
     public int getMaxY() {
         return maxY;
+    }
+
+    public boolean[][] getGrid() {
+        return grid;
     }
 }

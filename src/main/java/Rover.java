@@ -36,28 +36,6 @@ public class Rover {
 
     }
 
-
-    // To be Deleted after refactoring
-    public String dropDownRover(int x, int y, char direction) {
-        switch (direction) {
-            case 'N' :
-                this.cursor = 0;
-                break;
-            case 'E' :
-                this.cursor = 1;
-                break;
-            case 'S' :
-                this.cursor = 2;
-                break;
-            case 'W' :
-                this.cursor = 3;
-                break;
-        }
-
-        return "A Rover is dropped at " + this.x + ", " + this.y + ", " + this.direction[cursor];
-    }
-
-
     public void changeDirection(char turn) {
         if(turn == 'R') {
             cursor += 1;
@@ -82,7 +60,7 @@ public class Rover {
     public void moveForward() {
         switch (direction[cursor]) {
             case 'N' :
-                if( (y + 1) >= map.getMaxY() ) {
+                if(y == map.getMaxY()) {
                     System.out.println("This Rover can't move forward anymore.");
                 } else {
                     y += 1;
@@ -90,7 +68,7 @@ public class Rover {
                 break;
 
             case 'E' :
-                if( (x + 1) >= map.getMaxX() ) {
+                if(x == map.getMaxX()) {
                     System.out.println("This Rover can't move forward anymore.");
                 } else {
                     x += 1;
@@ -98,7 +76,7 @@ public class Rover {
                 break;
 
             case 'S' :
-                if( (y - 1) <= map.getMaxY() ) {
+                if(y == 0) {
                     System.out.println("This Rover can't move forward anymore.");
                 } else {
                     y -= 1;
@@ -106,7 +84,7 @@ public class Rover {
                 break;
 
             case 'W' :
-                if( (x - 1) <= map.getMaxX() ) {
+                if(x == 0) {
                     System.out.println("This Rover can't move forward anymore.");
                 } else {
                     x -= 1;

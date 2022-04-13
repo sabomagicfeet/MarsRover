@@ -19,11 +19,8 @@ public class Main {
         Plateau plateau = new Plateau(maxX, maxY);
         System.out.println(plateau.status());
         System.out.println();
-        System.out.println();
-
 
         // First Rover
-        System.out.println();
         System.out.println("Enter the first Rover's position : ");
         System.out.println("ex) 1 2 N  - drop at 1, 2 grid and facing North ");
         String dropCommandUserInput = scanner.nextLine();
@@ -59,7 +56,7 @@ public class Main {
         System.out.println(rover2.printStatus());
 
         System.out.println();
-        System.out.println();
+        System.out.println("Current Location of two Rovers");
         System.out.println(rover1.status());
         System.out.println(rover2.status());
 
