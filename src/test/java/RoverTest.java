@@ -102,11 +102,18 @@ public class RoverTest {
 
     @Test
     public void dropDownRoverOutsideOfPlateauTest() {
-        String expected = "This Rover is outside of Plateau. You lost the Rover which is £1,000,000,000";
-
         rover2.dropDownRover("1000 1000 E");
-
+        String expected = "This Rover is outside of Plateau. You lost the Rover which is £1,000,000,000";
         String actual = rover2.status();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void lowerCaseMoveCommandTest() {
+        rover.dropDownRover("1 1 E");
+        rover.move("mmlmmrr");
+        String expected = "3 3 S";
+        String actual = rover.status();
 
         Assertions.assertEquals(expected, actual);
     }

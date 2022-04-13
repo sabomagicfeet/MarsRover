@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Rover {
 
     private int x;
@@ -18,7 +20,7 @@ public class Rover {
         this.x = Integer.parseInt(commandArray[0]);
         this.y = Integer.parseInt(commandArray[1]);
 
-        switch (commandArray[2]) {
+        switch (commandArray[2].toUpperCase()) {
             case "N" :
                 this.cursor = 0;
                 break;
@@ -107,10 +109,11 @@ public class Rover {
     }
 
     public void move(String moveCommand) {
-        for(int i = 0; i < moveCommand.length(); i++) {
-            if( (moveCommand.charAt(i) == 'R') || (moveCommand.charAt(i) == 'L') ) {
-                changeDirection(moveCommand.charAt(i));
-            } else if (moveCommand.charAt(i) == 'M') {
+        String upperCaseMoveCommand = moveCommand.toUpperCase();
+        for(int i = 0; i < upperCaseMoveCommand.length(); i++) {
+            if( (upperCaseMoveCommand.charAt(i) == 'R') || (upperCaseMoveCommand.charAt(i) == 'L') ) {
+                changeDirection(upperCaseMoveCommand.charAt(i));
+            } else if (upperCaseMoveCommand.charAt(i) == 'M') {
                 moveForward();
             } else {
                 System.out.println("Invalid command. Please use only R, L and M for the command.");
