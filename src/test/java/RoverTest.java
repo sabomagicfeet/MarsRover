@@ -95,7 +95,20 @@ public class RoverTest {
         rover2.moveForward();
 
         String expected = "This Rover is at 5, 5 and facing E";
-        String actual = rover.printStatus();
+        String actual = rover2.printStatus();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void dropDownRoverOutsideOfPlateauTest() {
+        String expected = "This Rover is outside of Plateau. You lost the Rover which is £1,000,000,000";
+
+        rover2.dropDownRover("1000 1000 E");
+
+        String actual = rover2.status();
+
+        Assertions.assertEquals(expected, actual);
     }
 
 }

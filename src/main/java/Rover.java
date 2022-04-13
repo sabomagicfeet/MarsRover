@@ -1,13 +1,12 @@
 public class Rover {
 
-//    private Location location;
-
     private int x;
     private int y;
     private Plateau map;
     private final char[] direction = new char[]{'N', 'E', 'S', 'W'};
     private int cursor;
 
+    private static final int INVALID_LOCATION_VALUE = -1;
 
     public Rover(Plateau map) {
         this.map = map;
@@ -34,6 +33,14 @@ public class Rover {
                 break;
         }
 
+        if( x > map.getMaxX()
+                || y > map.getMaxY()
+                || x < 0
+                || y < 0 ) {
+            this.x = INVALID_LOCATION_VALUE;
+            this.y = INVALID_LOCATION_VALUE;
+        }
+
     }
 
     public void changeDirection(char turn) {
@@ -51,9 +58,15 @@ public class Rover {
     }
 
     public String printStatus() {
+        if(this.x <= INVALID_LOCATION_VALUE || this.y <= INVALID_LOCATION_VALUE) {
+            return "This Rover is outside of Plateau. You lost the Rover which is £1,000,000,000";
+        }
         return "This Rover is at " + x + ", " + y + " and facing " + direction[cursor];
     }
     public String status() {
+        if(this.x <= INVALID_LOCATION_VALUE || this.y <= INVALID_LOCATION_VALUE) {
+            return "This Rover is outside of Plateau. You lost the Rover which is £1,000,000,000";
+        }
         return x + " " + y + " " + direction[cursor];
     }
 
